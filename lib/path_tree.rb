@@ -28,7 +28,27 @@ class PathTree
     end
   end
 
+  def shortest_path
+    path = []
+    curr_square = @end_square
+
+    until curr_square.nil? do
+      path << curr_square.pos
+      curr_square = curr_square.parent
+    end
+
+    path.reverse
+  end
+
   def print_tree
+    square_queue = [@start_square]
+    
+    until square_queue.empty? do
+      curr_square = square_queue.shift
+      p curr_square.pos
+      puts
+      curr_square.children.each { |child| square_queue << child }
+    end
   end
 
   private
@@ -58,8 +78,5 @@ class PathTree
     dest_pos = [start_square[0] + move[0], start_square[1] + move[1]]
     dest_square = Square.new(dest_pos)
     dest_squares << dest_square if dest_square[0] >= 0 && dest_square[1] >= 0
-  end
-
-  def print_tree
   end
 end

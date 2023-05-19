@@ -1,12 +1,4 @@
-require_relative './lib/path_tree'
+require_relative './lib/knights_travails'
 
-
-MOVES = [
-  [1, 2], [2,1],
-  [2, -1], [1, -2],
-  [-1, -2], [-2, -1],
-  [-2, 1], [-1, 2]
-]
-
-tree = PathTree.new([0, 0], [3, 3], MOVES)
-tree.print_tree
+knight = Knight.new
+knight.move([3, 3])
