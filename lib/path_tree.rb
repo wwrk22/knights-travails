@@ -77,6 +77,6 @@ class PathTree
   def add_valid_square(start_square, move, dest_squares)
     dest_pos = [start_square[0] + move[0], start_square[1] + move[1]]
     dest_square = Square.new(dest_pos)
-    dest_squares << dest_square if dest_square[0] >= 0 && dest_square[1] >= 0
+    dest_squares << dest_square if dest_square.valid?
   end
 end
